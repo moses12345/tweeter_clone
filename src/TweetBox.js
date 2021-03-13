@@ -10,7 +10,6 @@ const TweetBox=()=>{
                 </div>
                 <input type="text" placeholder="Optional : img url here" className="tweetBox__input" />  
                 <Button className="tweetBox__tweetButton">Tweet</Button>
-
             </form>
         </div>
     )
