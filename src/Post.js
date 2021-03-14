@@ -1,3 +1,4 @@
+
 import Avatar from '@material-ui/core/Avatar'
 import './Post.css'
 import VertifiedUserIcon from '@material-ui/icons/VerifiedUser'
@@ -15,28 +16,28 @@ const Post=({
     text,
     image,
     avatar
-}) => {
+    }) => {
     return (
-        <div className="post" >
+      <div className="post" >
         <div className="post__avatar">
-          <Avatar src="https://media.giphy.com/media/pUDdiByLQZ3MSeYuvN/giphy.gif" />
+          <Avatar src={avatar} />
         </div>
         <div className="post__body">
           <div className="post__header">
             <div className="post__headerText">
               <h3>
-                cool dev{" "}
+                {displayName}{" "}
                 <span className="post__headerSpecial">
-                  <VertifiedUserIcon className="post__badge" />
-                  cool dev
+                  {verified && <VertifiedUserIcon className="post__badge" />}
+                  {username}
                 </span>
               </h3>
             </div>
             <div className="post__headerDescription">
-              <p>this is women days special</p>
+              <p>{text}</p>
             </div>
           </div>
-          <img src="https://media.giphy.com/media/pUDdiByLQZ3MSeYuvN/giphy.gif" alt="" />
+          <img src={image} alt="" />
           ,<Divider />
           <div className="post__footer">
             <ThumbUpAltIcon />  
