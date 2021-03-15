@@ -26,6 +26,7 @@ const Post=({
           <div className="post__header">
             <div className="post__headerText">
               <h3>
+            
                 {displayName}{" "}
                 <span className="post__headerSpecial">
                   {verified && <VertifiedUserIcon className="post__badge" />}
