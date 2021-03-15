@@ -44,3 +44,8 @@
   .post__avatar {
     padding: 20px;
   }
+  .deletebutton {
+    
+    display: 'flex'; 
+    justifyContent: 'flex-end'
+  }

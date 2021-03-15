@@ -4,8 +4,10 @@ import './Feed.css'
 import TweetBox from './TweetBox'
 import Post from './Post'
 import Divider from '@material-ui/core/Divider'
+import FlipMove from 'react-flip-move'
 const Feed =()=>{
     const [posts, setposts] = useState([])
+    
     // console.log(db.collection('posts').doc('Da24jdBu7R8kmAaFuZ2G').get().then(doc => {
     //     const data = doc.data();
     //     console.log(data)
@@ -20,18 +22,14 @@ const Feed =()=>{
     // }
 
  // another to get the data   
-    console.log(posts)
+    // console.log(posts)
     console.log("this is before useeffect")
     useEffect(() => {
         // fetchdata()
-        
         db.collection('posts').onSnapshot(Snapshot => {
-            setposts(Snapshot.docs.map(doc => doc.data() ))
+            setposts(Snapshot.docs.map(doc =>(doc.data())  ))           
         })
-    }, [])
-
-    console.log("this after useffects")
-   
+    }, [])   
     return(
         <div className="feed"> 
             <div className="feed__header">
@@ -40,19 +38,23 @@ const Feed =()=>{
                 
             </div>
             <TweetBox />
-        {/*passing index as another parameter curbs the key error and key is keyword can't be used as a prop*/}        
-        {posts.map((post,index) =>(
-         <Post 
-         key = {index}
-         i={index}
-         displayName={post.displayName}
-         username={post.username}
-         verified={post.verified}
-         text={post.text}
-         image={post.image}
-         avatar={post.avatar}
-         />
-        ))}
+        {/*passing index as another parameter curbs the key error and key is keyword can't be used as a prop*/}  
+        <FlipMove>    
+            {posts.map((post,index) =>(
+                
+                <Post   
+                key = {index}
+                id_post={post.id}   
+                displayName={post.displayName}
+                username={post.username}
+                verified={post.verified}
+                text={post.text}
+                image={post.image}
+                avatar={post.avatar}
+                />
+        ))}  
+          
+        </FlipMove>  
         </div>
     )
 }
